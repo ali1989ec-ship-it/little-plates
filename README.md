@@ -2,6 +2,8 @@
 
 A small UK family meal idea finder. Choose breakfast, lunch, dinner or snack and a parent-friendly goal to browse 12 simple ideas. The supermarket selector changes the shopping-list heading; it does not check live stock or prices.
 
+Live website: https://ali1989ec-ship-it.github.io/little-plates/
+
 ## Run locally
 
 Open `index.html` in a browser, or serve this folder with `python3 -m http.server 8000` and visit `http://localhost:8000`.
