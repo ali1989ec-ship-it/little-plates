@@ -1,6 +1,6 @@
 # Little Plates
 
-A small UK family meal idea finder. Choose breakfast, lunch, dinner or snack and a parent-friendly goal to browse 12 simple ideas. The supermarket selector changes the shopping-list heading; it does not check live stock or prices.
+A small UK family meal idea finder. Choose breakfast, lunch, dinner or snack and a parent-friendly goal to browse 12 simple ideas, each with its own illustrative food photo. The supermarket selector changes the shopping-list heading; it does not check live stock or prices.
 
 Live website: https://ali1989ec-ship-it.github.io/little-plates/
 

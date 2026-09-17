@@ -23,7 +23,7 @@ function render(){
   const shown=meals.filter(m=>(state.time==='all'||m.time===state.time)&&(state.goal==='all'||m.goals.includes(state.goal)));
   count.textContent=`${shown.length} ${shown.length===1?'idea':'ideas'} to try`;
   empty.hidden=shown.length!==0;
-  cards.innerHTML=shown.map((m)=>`<article class="meal-card"><span class="card-icon" aria-hidden="true">${m.icon}</span><span class="card-meta">${cap(m.time)} · ${m.minutes} min</span><h3>${m.title}</h3><p>${m.description}</p><button type="button" data-recipe="${meals.indexOf(m)}">See ingredients & steps</button></article>`).join('');
+  cards.innerHTML=shown.map((m)=>`<article class="meal-card"><img class="card-photo" src="images/meal-${String(meals.indexOf(m)+1).padStart(2,'0')}.jpg" alt="${m.title}" loading="lazy"><span class="card-meta">${cap(m.time)} · ${m.minutes} min</span><h3>${m.title}</h3><p>${m.description}</p><button type="button" data-recipe="${meals.indexOf(m)}">See ingredients & steps</button></article>`).join('');
 }
 document.querySelectorAll('.chip').forEach(btn=>btn.addEventListener('click',()=>{
   state[btn.dataset.filter]=btn.dataset.value;
@@ -33,7 +33,7 @@ document.querySelectorAll('.chip').forEach(btn=>btn.addEventListener('click',()=
 cards.addEventListener('click',event=>{
   const button=event.target.closest('[data-recipe]');if(!button)return;
   const m=meals[Number(button.dataset.recipe)];
-  content.innerHTML=`<p class="dialog-meta">${cap(m.time)} · ${m.minutes} minutes</p><h2 class="dialog-title" id="dialog-title">${m.title}</h2><p class="dialog-intro">${m.description}</p><div class="dialog-grid"><div><h3>Pick up at ${document.querySelector('#shop').value}</h3><ul>${m.ingredients.map(x=>`<li>${x}</li>`).join('')}</ul></div><div><h3>How to make it</h3><ol>${m.steps.map(x=>`<li>${x}</li>`).join('')}</ol></div></div>`;
+  content.innerHTML=`<img class="dialog-photo" src="images/meal-${String(meals.indexOf(m)+1).padStart(2,'0')}.jpg" alt="${m.title}"><p class="dialog-meta">${cap(m.time)} · ${m.minutes} minutes</p><h2 class="dialog-title" id="dialog-title">${m.title}</h2><p class="dialog-intro">${m.description}</p><div class="dialog-grid"><div><h3>Pick up at ${document.querySelector('#shop').value}</h3><ul>${m.ingredients.map(x=>`<li>${x}</li>`).join('')}</ul></div><div><h3>How to make it</h3><ol>${m.steps.map(x=>`<li>${x}</li>`).join('')}</ol></div></div>`;
   dialog.showModal();
 });
 document.querySelector('#close-dialog').addEventListener('click',()=>dialog.close());
